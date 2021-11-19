@@ -1,9 +1,17 @@
 const romanNumerals=(num)=>{
-    const numerals = ['M', 'D', 'C', 'L', 'X', 'V', 'I'];
-    const values = [1000, 500, 100, 50, 10, 5, 1];
+
+    const convert = [{letter:'M', value:1000},
+                        {letter:'D', value:500},
+                        {letter:'C', value:100},
+                        {letter:'L', value:50},
+                        {letter:'X', value:10},
+                        {letter:'V', value:5},
+                        {letter:'I', value:1}]
+
     let result = '';
-    values.forEach((v,i)=>{result+=numerals[i].repeat(Math.floor(num/v));num%=v});
+    convert.forEach(v=>{result+=v.letter.repeat(Math.floor(num/v.value));num%=v.value});
     return result;
+
 }
 
 console.log(romanNumerals(4));
